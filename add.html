@@ -1,0 +1,35 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div class="card shadow">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 fw-bold">Добавление Поставщика</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                         aria-describedby="dataTable_info">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+
+                                <button class="btn btn-success" type="submit">Сохранить</button>
+                                <a class="btn btn-danger"  href="{% url "products:supplier" %}">Отмена</a>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
